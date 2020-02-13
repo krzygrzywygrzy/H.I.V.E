@@ -8,7 +8,7 @@ class HiveCard extends StatelessWidget {
   HiveCard({this.hiveName, this.measurement, this.details});
   final String hiveName;
   final Measurement measurement;
-  final String details;
+  final List<Measurement> details;
 
   List<Widget> generateOval(bool firstColumn) {
     int i, limit;
@@ -23,10 +23,12 @@ class HiveCard extends StatelessWidget {
         measurement: readingList[i],
         unit: units[i],
         data: data(i),
+        details: details,
       ));
     }
     return list;
   }
+
 
   int data(int i) {
     int data;

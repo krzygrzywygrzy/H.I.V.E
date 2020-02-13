@@ -16,6 +16,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   List<Measurement> measurement = [];
   User user;
+  List<List<Measurement>> details = [];
 
   @override
   initState() {
@@ -30,6 +31,9 @@ class _MyHomePageState extends State<MyHomePage> {
       user = new User.fromJson(json['user']);
       for(int i= 0; i <= user.ownedHives.length -1; i++){
         measurement.add(new Measurement.fromJson(json['hives'][i]['last'][0]));
+        var full = json['hives'][i]['full'] as List;
+        List<Measurement> list = full.map((x)=> Measurement.fromJson(x)).toList();
+        details.add(list);
       }
     } catch (e) {
       print(e);
@@ -42,10 +46,13 @@ class _MyHomePageState extends State<MyHomePage> {
       list.add(HiveCard(
        hiveName: user.hiveNames[i],
         measurement: measurement[i],
+        details: details[i],
       ));
     }
     return list;
   }
+
+
 
   @override
   Widget build(BuildContext context) {
