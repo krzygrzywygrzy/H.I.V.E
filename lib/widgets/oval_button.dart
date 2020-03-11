@@ -8,12 +8,10 @@ class Oval extends StatelessWidget {
     this.measurement,
     this.unit,
     this.data,
-    this.details,
     this.iterator,
   });
   final String measurement, unit;
   final int data, iterator;
-  final List<Measurement> details;
 
 
   @override
@@ -27,7 +25,6 @@ class Oval extends StatelessWidget {
               MaterialPageRoute(
                   builder: (context) => Details(
                         name: measurement,
-                        detalis: details,
                         unit: unit,
                       )));
         },

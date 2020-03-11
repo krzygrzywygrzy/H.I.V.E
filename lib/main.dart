@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hive/const.dart';
 import 'package:hive/screens/form_screen.dart';
 import 'package:hive/screens/log_in_screen.dart';
+import 'package:hive/screens/main_menu.dart';
 import 'package:hive/screens/register_screen.dart';
 
 void main() => runApp(MyApp());
@@ -18,12 +19,13 @@ class MyApp extends StatelessWidget {
           color: Color(kOrange),
         ),
       ),
-      initialRoute: '/',
-      routes: {
+      // initialRoute: '/',
+      home: MyHomePage(),
+     /* routes: {
         '/': (context) => LoadingScreen(),
         '/login': (context) => LogIn(),
         '/register': (context) => Register(),
-      },
+      }, */
       builder: (context, child) {
         return ScrollConfiguration(
           behavior: MyBehavior(),

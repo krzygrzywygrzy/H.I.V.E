@@ -11,7 +11,6 @@ class LogIn extends StatefulWidget {
 }
 
 class _LogInState extends State<LogIn> {
-  //TODO: implement input
 
   String email = 'jan@wp.pl';
   String password = 'kwakwa5!';

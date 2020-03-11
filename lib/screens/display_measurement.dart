@@ -5,10 +5,9 @@ import 'package:hive/data.dart';
 import 'package:hive/services/measurement.dart';
 
 class HiveCard extends StatelessWidget {
-  HiveCard({this.hiveName, this.measurement, this.details});
+  HiveCard({this.hiveName, this.measurement});
   final String hiveName;
   final Measurement measurement;
-  final List<Measurement> details;
 
   List<Widget> generateOval(bool firstColumn) {
     int i, limit;
@@ -23,7 +22,6 @@ class HiveCard extends StatelessWidget {
         measurement: readingList[i],
         unit: units[i],
         data: data(i),
-        details: details,
       ));
     }
     return list;

@@ -5,9 +5,10 @@ import 'package:hive/services/user.dart';
 import 'display_measurement.dart';
 import 'package:hive/services/measurement.dart';
 import 'add_hive_screen.dart';
+import 'package:hive/widgets/sliver_top_bar.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({@required this.response});
+  MyHomePage({this.response});
   final String response;
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -16,24 +17,20 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   List<Measurement> measurement = [];
   User user;
-  List<List<Measurement>> details = [];
 
   @override
   initState() {
     super.initState();
-    fetchData();
-
   }
 
-  fetchData() {
+  /*
+
+   fetchData() {
     try {
       var json = jsonDecode(widget.response);
       user = new User.fromJson(json['user']);
       for(int i= 0; i <= user.ownedHives.length -1; i++){
         measurement.add(new Measurement.fromJson(json['hives'][i]['last'][0]));
-        var full = json['hives'][i]['full'] as List;
-        List<Measurement> list = full.map((x)=> Measurement.fromJson(x)).toList();
-        details.add(list);
       }
     } catch (e) {
       print(e);
@@ -46,18 +43,34 @@ class _MyHomePageState extends State<MyHomePage> {
       list.add(HiveCard(
        hiveName: user.hiveNames[i],
         measurement: measurement[i],
-        details: details[i],
       ));
     }
     return list;
   }
-
-
+ */
 
   @override
   Widget build(BuildContext context) {
     // main menu
+
     return Scaffold(
+      backgroundColor: Colors.white,
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverPersistentHeader(delegate: TopBar(), floating: true,),
+          SliverList(
+            delegate: SliverChildBuilderDelegate((context, index) {
+              return Container(
+                child: Text('No $index'),
+                height: 120,
+              );
+            }),
+          ),
+        ],
+      ),
+    );
+
+   /* return Scaffold(
       backgroundColor: Color(kOrange),
       body: SafeArea(
         child: Center(
@@ -104,10 +117,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                         color: Color(kBrown)),
                                   ),
                                   Text(
-                                    user.firstName +
+                                    /*user.firstName +
                                         " " +
                                         user.secondName +
-                                        "!",
+                                        "!", */
+                                    "CO jest",
                                     style: kTextStyleOne.copyWith(
                                         color: Colors.black,
                                         fontSize: 20,
@@ -117,9 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                             ),
                           ),
-                          Column(
-                            children: hiveData(),
-                          ),
+                          Column(),
                           SizedBox(
                             height: 70,
                           ),
@@ -184,6 +196,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
-    );
+    ); */
+
   }
 }
