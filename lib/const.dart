@@ -35,12 +35,10 @@ const kTextStyleTwo = TextStyle(
 const kOvalButton = TextStyle(
   fontFamily: 'Montserrant',
   fontSize: 12,
-  fontWeight: FontWeight.bold,
 );
 const kOvalButtonValue = TextStyle(
   fontFamily: 'Montserrant',
   fontSize: 24,
-  color: Color(kBrown),
 );
 
 const kInputField = TextStyle(

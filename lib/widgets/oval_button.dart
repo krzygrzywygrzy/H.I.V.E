@@ -13,14 +13,13 @@ class Oval extends StatelessWidget {
   final String measurement, unit;
   final int data, iterator;
 
-
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
       child: GestureDetector(
         onTap: () {
-         Navigator.push(
+          Navigator.push(
               context,
               MaterialPageRoute(
                   builder: (context) => Details(
@@ -28,33 +27,41 @@ class Oval extends StatelessWidget {
                         unit: unit,
                       )));
         },
-        child: ClipOval(
-          child: Container(
-            width: 100,
-            height: 100,
-            color: Color(kGrey),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                RichText(
-                  text: TextSpan(
-                    text: '$data',
-                    style: kOvalButtonValue,
-                    children: <TextSpan>[
-                      TextSpan(
-                        text: '$unit',
-                        style: kOvalButtonValue.copyWith(fontSize: 20),
-                      ),
-                    ],
-                  ),
-                ),
-                Text(
-                  "$measurement",
-                  style: kOvalButton,
-                ),
+        child: Container(
+          width: MediaQuery.of(context).size.width * 0.25,
+          height: MediaQuery.of(context).size.width * 0.25,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            shape: BoxShape.circle,
+            boxShadow: [
+                BoxShadow(
+                    color: Colors.grey,
+                    blurRadius: 5,
+                    offset: Offset(0, 3),
+                    spreadRadius: 0.5)
               ],
-            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              RichText(
+                text: TextSpan(
+                  text: '$data',
+                  style: kOvalButtonValue.copyWith(color: Theme.of(context).primaryColor),
+                  children: <TextSpan>[
+                    TextSpan(
+                      text: '$unit',
+                      style: kOvalButtonValue.copyWith(fontSize: 20, color: Theme.of(context).primaryColor),
+                    ),
+                  ],
+                ),
+              ),
+              Text(
+                "$measurement",
+                style: kOvalButton,
+              ),
+            ],
           ),
         ),
       ),

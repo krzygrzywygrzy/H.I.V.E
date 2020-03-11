@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:hive/const.dart';
 
 class TopBar extends SliverPersistentHeaderDelegate {
+  TopBar({this.name});
+  final String name;
+
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
@@ -19,13 +23,19 @@ class TopBar extends SliverPersistentHeaderDelegate {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
-                  "Witaj!",
-                  style: TextStyle(color: Colors.white,  fontFamily: 'Montserrat', fontSize: 23),
+                RichText(
+                  text: TextSpan(
+                      text: 'Witaj ',
+                      style: kTextStyleOne.copyWith(fontSize: 25),
+                      children: <TextSpan>[
+                        TextSpan(
+                            text: '$name!',
+                            style: kTextStyleOne.copyWith(fontSize: 30)),
+                      ]),
                 ),
                 Text(
-                  "Paweł!",
-                  style: TextStyle(color: Colors.white,  fontFamily: 'Montserrat', fontSize: 36),
+                  'Sprawdź jak sprawują się twoje ule:',
+                  style: TextStyle(color: Colors.white),
                 ),
               ],
             ),

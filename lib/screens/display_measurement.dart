@@ -17,7 +17,7 @@ class HiveCard extends StatelessWidget {
     else
       i = 3;
     limit = i + 2;
-    for ( ;i <= limit; i++) {
+    for (; i <= limit; i++) {
       list.add(Oval(
         measurement: readingList[i],
         unit: units[i],
@@ -26,7 +26,6 @@ class HiveCard extends StatelessWidget {
     }
     return list;
   }
-
 
   int data(int i) {
     int data;
@@ -69,19 +68,17 @@ class HiveCard extends StatelessWidget {
                   child: Container(
                     child: RichText(
                       text: TextSpan(
-                        text: 'Tak sprawuje się twój ',
+                        text: '$hiveName',
                         style: kTextStyleTwo.copyWith(
-                            color: Colors.black, fontWeight: FontWeight.bold),
+                          color: Colors.black,
+                          fontSize: 30,
+                        ),
                         children: <TextSpan>[
                           TextSpan(
-                            text: '$hiveName',
-                            style: kTextStyleTwo.copyWith(
-                                color: Color(kOrange),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 32),
-                          ),
-                          TextSpan(
                             text: ':',
+                            style: kTextStyleTwo.copyWith(
+                              color: Colors.black,
+                            ),
                           ),
                         ],
                       ),
@@ -107,7 +104,7 @@ class HiveCard extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 15,
+          height: 10,
         ),
       ],
     );

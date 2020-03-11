@@ -21,7 +21,17 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   initState() {
     super.initState();
+    addMeasurements();
   }
+
+
+  addMeasurements(){
+    for(int i = 0; i <= 3; i++){
+      measurement.add(new Measurement(temperature: 3, weight: 3, humidity: 3, pressure: 3, pm10: 3, pm25: 3));
+    }
+  }
+
+
 
   /*
 
@@ -51,152 +61,59 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // main menu
-
     return Scaffold(
       backgroundColor: Colors.white,
+      drawer: Drawer(
+        child: DrawerItems(),
+      ),
       body: CustomScrollView(
         slivers: <Widget>[
-          SliverPersistentHeader(delegate: TopBar(), floating: true,),
+          SliverPersistentHeader(
+            delegate: TopBar(name: "Jaca"),
+            floating: true,
+          ),
           SliverList(
             delegate: SliverChildBuilderDelegate((context, index) {
-              return Container(
-                child: Text('No $index'),
-                height: 120,
+              return HiveCard(
+                measurement: measurement[index],
+                hiveName: "tak",
               );
-            }),
+            },
+            childCount: measurement.length-1),
           ),
         ],
       ),
     );
+  }
+}
 
-   /* return Scaffold(
-      backgroundColor: Color(kOrange),
-      body: SafeArea(
-        child: Center(
-          child: Stack(
+class DrawerItems extends StatelessWidget {
+
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: <Widget>[
+        ListTile(
+          title: Row(
             children: <Widget>[
-              Column(
-                children: <Widget>[
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Text('H.I.V.E.',
-                      style: kTextStyleLogo.copyWith(fontSize: 50)),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Expanded(
-                    child: Container(
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10),
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                            blurRadius: 15,
-                          ),
-                        ],
-                      ),
-                      child: ListView(
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 10),
-                            child: Container(
-                              alignment: Alignment.centerLeft,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Text(
-                                    'Witaj',
-                                    style: kTextStyleOne.copyWith(
-                                        color: Color(kBrown)),
-                                  ),
-                                  Text(
-                                    /*user.firstName +
-                                        " " +
-                                        user.secondName +
-                                        "!", */
-                                    "CO jest",
-                                    style: kTextStyleOne.copyWith(
-                                        color: Colors.black,
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Column(),
-                          SizedBox(
-                            height: 70,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
+              Icon(
+                Icons.account_circle,
+                color: Theme.of(context).primaryColor,
+                size: 30,
               ),
-              Positioned(
-                child: Align(
-                  alignment: Alignment.bottomCenter,
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => AddHive(
-                                    email: user.email,
-                                  )));
-                    },
-                    child: Container(
-                      height: 60,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                        color: Color(kBrown),
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10),
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                            blurRadius: 10,
-                          ),
-                        ],
-                      ),
-                      child: Center(
-                        child: Text(
-                          'Dodaj ul',
-                          style: kTextStyleOne.copyWith(
-                              fontSize: 25, color: Colors.white),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                right: 10,
-                top: 10,
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/');
-                  },
-                  child: Icon(
-                    Icons.account_circle,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
+              SizedBox(width: 10,),
+              Text(
+                'Ustawienia konta',
+                style: TextStyle(fontSize: 18),
+              )
             ],
           ),
         ),
-      ),
-    ); */
-
+      ],
+    );
   }
 }
+
+
+
