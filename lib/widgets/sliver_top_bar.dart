@@ -11,9 +11,15 @@ class TopBar extends SliverPersistentHeaderDelegate {
     return Stack(
       fit: StackFit.expand,
       children: <Widget>[
-        Image.asset(
-          'assets/Bee_Sliver_Image.png',
-          fit: BoxFit.cover,
+        Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.bottomRight,
+                  end: Alignment.topLeft,
+                  colors: [
+                Theme.of(context).primaryColor,
+                Theme.of(context).primaryColorDark,
+              ])),
         ),
         Positioned(
           bottom: 5,
@@ -41,12 +47,28 @@ class TopBar extends SliverPersistentHeaderDelegate {
             ),
           ),
         ),
+        Positioned(
+          bottom: 10,
+          right: 10,
+          child: Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.white,
+            ),
+            child: Icon(
+              Icons.add,
+              color: Theme.of(context).primaryColor,
+              size: 30,
+              
+            ),
+          ),
+        ),
       ],
     );
   }
 
   @override
-  double get maxExtent => 200;
+  double get maxExtent => 150;
 
   @override
   double get minExtent => 0;
