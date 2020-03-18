@@ -1,10 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:hive/const.dart';
 import 'package:hive/services/user.dart';
 import 'display_measurement.dart';
 import 'package:hive/services/measurement.dart';
-import 'add_hive_screen.dart';
+
 import 'package:hive/widgets/sliver_top_bar.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -24,14 +23,17 @@ class _MyHomePageState extends State<MyHomePage> {
     addMeasurements();
   }
 
-
-  addMeasurements(){
-    for(int i = 0; i <= 3; i++){
-      measurement.add(new Measurement(temperature: 3, weight: 3, humidity: 3, pressure: 3, pm10: 3, pm25: 3));
+  addMeasurements() {
+    for (int i = 0; i <= 3; i++) {
+      measurement.add(new Measurement(
+          temperature: 3,
+          weight: 3,
+          humidity: 3,
+          pressure: 3,
+          pm10: 3,
+          pm25: 3));
     }
   }
-
-
 
   /*
 
@@ -63,9 +65,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      drawer: Drawer(
-        child: DrawerItems(),
-      ),
       body: CustomScrollView(
         slivers: <Widget>[
           SliverPersistentHeader(
@@ -76,44 +75,12 @@ class _MyHomePageState extends State<MyHomePage> {
             delegate: SliverChildBuilderDelegate((context, index) {
               return HiveCard(
                 measurement: measurement[index],
-                hiveName: "tak",
+                hiveName: "TAK",
               );
-            },
-            childCount: measurement.length-1),
+            }, childCount: measurement.length - 1),
           ),
         ],
       ),
     );
   }
 }
-
-class DrawerItems extends StatelessWidget {
-
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      children: <Widget>[
-        ListTile(
-          title: Row(
-            children: <Widget>[
-              Icon(
-                Icons.account_circle,
-                color: Theme.of(context).primaryColor,
-                size: 30,
-              ),
-              SizedBox(width: 10,),
-              Text(
-                'Ustawienia konta',
-                style: TextStyle(fontSize: 18),
-              )
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-
-

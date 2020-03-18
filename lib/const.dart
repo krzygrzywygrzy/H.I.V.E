@@ -8,12 +8,11 @@ const kGrey = 0xfff7f7f7;
 
 //Oranges
 const kOrange = 0xfff15d27;
+const kOrangeDarker = 0xffde3b00;
 
 //borowns
 const kBrown = 0xff7A6563;
 
-//blues
-const kBlue = 0xff558B6E;
 
 //text styles
 const kTextStyleOne = TextStyle(

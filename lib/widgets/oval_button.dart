@@ -48,11 +48,11 @@ class Oval extends StatelessWidget {
               RichText(
                 text: TextSpan(
                   text: '$data',
-                  style: kOvalButtonValue.copyWith(color: Theme.of(context).primaryColor),
+                  style: kOvalButtonValue.copyWith(color: Color(kOrange)),
                   children: <TextSpan>[
                     TextSpan(
                       text: '$unit',
-                      style: kOvalButtonValue.copyWith(fontSize: 20, color: Theme.of(context).primaryColor),
+                      style: kOvalButtonValue.copyWith(fontSize: 20, color: Color(kOrange)),
                     ),
                   ],
                 ),

@@ -14,13 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'H.I.V.E.',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        primaryColor: Color(0xff039be5),
-        accentColor: Colors.pink,
         fontFamily: 'Montserrat',
-        appBarTheme: AppBarTheme(
-          color: Color(kOrange),
-        ),
       ),
       // initialRoute: '/',
       home: MyHomePage(),

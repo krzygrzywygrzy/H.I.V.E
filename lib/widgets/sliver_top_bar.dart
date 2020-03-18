@@ -17,8 +17,8 @@ class TopBar extends SliverPersistentHeaderDelegate {
                   begin: Alignment.bottomRight,
                   end: Alignment.topLeft,
                   colors: [
-                Theme.of(context).primaryColor,
-                Theme.of(context).primaryColorDark,
+                Color(kOrange),
+                Color(kOrangeDarker)
               ])),
         ),
         Positioned(
@@ -57,7 +57,7 @@ class TopBar extends SliverPersistentHeaderDelegate {
             ),
             child: Icon(
               Icons.add,
-              color: Theme.of(context).primaryColor,
+              color: Color(kOrange),
               size: 30,
               
             ),

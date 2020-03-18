@@ -60,12 +60,14 @@ class HiveCard extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
           child: Row(
             children: <Widget>[
+              SizedBox(height: 10),
               Expanded(
                 flex: 2,
                 child: Padding(
                   padding:
-                      const EdgeInsets.symmetric(vertical: 2, horizontal: 4),
+                      const EdgeInsets.symmetric(vertical: 4, horizontal: 4),
                   child: Container(
+                    alignment: Alignment.center,
                     child: RichText(
                       text: TextSpan(
                         text: '$hiveName',
@@ -73,14 +75,6 @@ class HiveCard extends StatelessWidget {
                           color: Colors.black,
                           fontSize: 30,
                         ),
-                        children: <TextSpan>[
-                          TextSpan(
-                            text: ':',
-                            style: kTextStyleTwo.copyWith(
-                              color: Colors.black,
-                            ),
-                          ),
-                        ],
                       ),
                     ),
                   ),
