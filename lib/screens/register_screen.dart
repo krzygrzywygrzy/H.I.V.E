@@ -116,6 +116,7 @@ class _RegisterState extends State<Register> {
               StyledInputField(
                 password: false,
                 hintText: 'e-mail',
+                email: true,
                 onChanged: (value) {
                   setState(() {
                     email = value;

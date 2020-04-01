@@ -3,7 +3,7 @@ import 'package:hive/const.dart';
 
 class StyledInputField extends StatelessWidget {
   StyledInputField(
-      {@required this.hintText, this.onChanged, @required this.password,this.email=false});
+      {@required this.hintText, this.onChanged, @required this.password, this.email=false});
   final String hintText;
   final Function onChanged;
   final bool password;
@@ -14,6 +14,7 @@ class StyledInputField extends StatelessWidget {
       height: 60,
       width: 300,
       child: TextField(
+        keyboardType: email ? TextInputType.emailAddress : TextInputType.text,
         onChanged: onChanged,
         obscureText: password,
         style: TextStyle(color: Color(kBrown)),

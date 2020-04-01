@@ -51,15 +51,20 @@ class TopBar extends SliverPersistentHeaderDelegate {
         Positioned(
           bottom: 10,
           right: 10,
-          child: Container(
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.white,
-            ),
-            child: Icon(
-              Icons.add,
-              color: Color(kOrange),
-              size: 30,
+          child: GestureDetector(
+            onTap: (){
+              showBottomSheet(context: context, builder: (context)=> Container());
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.white,
+              ),
+              child: Icon(
+                Icons.add,
+                color: Color(kOrange),
+                size: 30,
+              ),
             ),
           ),
         ),

@@ -67,7 +67,7 @@ class _LogInState extends State<LogIn> {
                 "H.I.V.E.",
                 style: TextStyle(
                   fontFamily: 'ZhiMangXing',
-                  color: Colors.white,
+                  color: Color(kOrange),
                   fontSize: 40,
                 ),
               ),
@@ -82,6 +82,7 @@ class _LogInState extends State<LogIn> {
             StyledInputField(
               hintText: 'wprowadź e-mail',
               password: false,
+              email: true,
               onChanged: (value) {
                 setState(() {
                   email = value;

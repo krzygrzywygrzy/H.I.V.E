@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Montserrat',
       ),
       // initialRoute: '/',
-      home: MyHomePage(),
+      home: LogIn(),
       /* routes: {
         '/': (context) => LogIn(),
         '/register': (context) => Register(),
