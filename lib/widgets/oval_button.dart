@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hive/const.dart';
-import 'package:hive/screens/details.dart';
-import 'package:hive/services/measurement.dart';
 
 class Oval extends StatelessWidget {
   Oval({
@@ -19,13 +17,14 @@ class Oval extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
       child: GestureDetector(
         onTap: () {
-          Navigator.push(
+          /*  Navigator.push(
               context,
               MaterialPageRoute(
                   builder: (context) => Details(
                         name: measurement,
                         unit: unit,
                       )));
+                      */
         },
         child: Container(
           width: MediaQuery.of(context).size.width * 0.25,

@@ -5,7 +5,6 @@ import 'package:hive/const.dart';
 
 class GetData {
   static Future<String> getPrimaryData(var email, var password) async {
-    //TODO:
     var res =
         '{"message":"Nie udało się!","specyfic":"Nie ma takiego użytkownika."}';
     var loginApi = '/api/user/login/';

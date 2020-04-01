@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hive/const.dart';
 import 'package:hive/screens/log_in_screen.dart';
 import 'package:hive/screens/main_menu.dart';
 import 'package:hive/screens/register_screen.dart';

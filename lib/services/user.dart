@@ -12,7 +12,7 @@ class User {
 
   User.fromJson(Map<String, dynamic> json)
       : firstName = json['firstName'],
-        secondName = json['secoundName'], //TODO: correct after server update
+        secondName = json['secoundName'],
         email = json['email'],
         password = json['password'],
         hiveNames = json['hiveNames'],
