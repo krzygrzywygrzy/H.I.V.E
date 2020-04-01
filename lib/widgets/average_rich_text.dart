@@ -16,15 +16,13 @@ class AverageRichText extends StatelessWidget {
         child: RichText(
           text: TextSpan(
             text: '$label',
-            style: kTextStyleTwo.copyWith(color: Color(kBrown)),
+            style: TextStyle(color: Color(kBrown), fontSize: 25),
             children: <TextSpan>[
               TextSpan(
                 text: average,
-                style: kTextStyleTwo.copyWith(color: Colors.black, fontSize: 30),
+                style: TextStyle(color: Colors.black, fontSize: 30),
               ),
-              TextSpan(
-                  text: '$unit'
-              ),
+              TextSpan(text: '$unit'),
             ],
           ),
         ),

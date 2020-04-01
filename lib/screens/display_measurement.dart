@@ -71,10 +71,7 @@ class HiveCard extends StatelessWidget {
                     child: RichText(
                       text: TextSpan(
                         text: '$hiveName',
-                        style: kTextStyleTwo.copyWith(
-                          color: Colors.black,
-                          fontSize: 30,
-                        ),
+                        style: TextStyle(fontSize: 30, color: Colors.black),
                       ),
                     ),
                   ),

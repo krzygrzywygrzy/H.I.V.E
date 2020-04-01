@@ -11,7 +11,6 @@ class LogIn extends StatefulWidget {
 }
 
 class _LogInState extends State<LogIn> {
-
   String email = 'jan@wp.pl';
   String password = 'kwakwa5!';
   String warning = '';
@@ -39,32 +38,20 @@ class _LogInState extends State<LogIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: Icon(
-            Icons.arrow_back,
-            color: Color(kBrown),
-          ),
-        ),
-      ),
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: ListView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  height: 50,
-                ),
-                Padding(
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: 50,
+            ),
+            Flexible(
+              child: Hero(
+                tag: "logo",
+                child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
                     child: Image.asset('assets/hive_logo_orange.png'),
@@ -72,47 +59,68 @@ class _LogInState extends State<LogIn> {
                     height: 150,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                "H.I.V.E.",
+                style: TextStyle(
+                  fontFamily: 'ZhiMangXing',
+                  color: Colors.white,
+                  fontSize: 40,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                '$warning',
+                style: kWarning,
+              ),
+            ),
+            StyledInputField(
+              hintText: 'wprowadź e-mail',
+              password: false,
+              onChanged: (value) {
+                setState(() {
+                  email = value;
+                });
+              },
+            ),
+            StyledInputField(
+              hintText: 'wprowadź hasło',
+              password: true,
+              onChanged: (value) {
+                setState(() {
+                  password = value;
+                });
+              },
+            ),
+            LogInButton(
+              label: 'Zaloguj',
+              onPressed: () async {
+                logIn();
+              },
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'Nie masz konta?',
+                  style: TextStyle(fontFamily: "Montserrat"),
+                ),
+                GestureDetector(
                   child: Text(
-                    "H.I.V.E.",
-                    style: kTextStyleLogo.copyWith(color: Color(kOrange)),
+                    ' Zarejestruj się!',
+                    style: TextStyle(
+                        fontFamily: "Montserrat", color: Color(kOrange)),
                   ),
-                ),
-                SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    '$warning',
-                    style: kWarning,
-                  ),
-                ),
-                StyledInputField(
-                  hintText: 'wprowadź e-mail',
-                  password: false,
-                  onChanged: (value) {
-                    setState(() {
-                      email = value;
-                    });
-                  },
-                ),
-                StyledInputField(
-                  hintText: 'wprowadź hasło',
-                  password: true,
-                  onChanged: (value) {
-                    setState(() {
-                      password = value;
-                    });
-                  },
-                ),
-                LogInButton(
-                  label: 'Zaloguj',
-                  color: Color(kOrange),
-                  onPressed: () async {
-                    logIn();
-                  },
                 ),
               ],
+            ),
+            SizedBox(
+              height: 10,
             ),
           ],
         ),

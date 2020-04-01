@@ -19,20 +19,22 @@ class _RegisterState extends State<Register> {
       String reg =
           await UserRegister.register(firstName, secondName, email, password);
 
-      if(firstName == '' && secondName == '' && email == '' && password == ''){
+      if (firstName == '' &&
+          secondName == '' &&
+          email == '' &&
+          password == '') {
         setState(() {
           message = 'Pola nie mogą być puste';
         });
-      }
-      else{
+      } else {
         if (reg == 'done') {
           var response = await GetData.getPrimaryData(email, password);
           Navigator.push(
               context,
               MaterialPageRoute(
                   builder: (context) => MyHomePage(
-                    response: response,
-                  )));
+                        response: response,
+                      )));
         } else if (reg == 'error') {
           setState(() {
             message = 'Użytkownik już istnieje';
@@ -68,87 +70,75 @@ class _RegisterState extends State<Register> {
         ),
       ),
       body: SafeArea(
-        child: ListView(
-          children: <Widget>[
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                SizedBox(
-                  height: 50,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    child: Image.asset('assets/hive_logo_orange.png'),
-                    width: 150,
-                    height: 150,
+        child: SizedBox.expand(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Flexible(
+                child: Hero(
+                  tag: 'logo',
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      child: Image.asset('assets/hive_logo_orange.png'),
+                      width: 150,
+                      height: 150,
+                    ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    "H.I.V.E.",
-                    style: kTextStyleLogo.copyWith(color: Color(kOrange)),
-                  ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  '$message',
+                  style: kWarning,
                 ),
-                SizedBox(
-                  height: 10,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    '$message',
-                    style: kWarning,
-                  ),
-                ),
-                StyledInputField(
-                  password: false,
-                  hintText: 'imię',
-                  onChanged: (value) {
-                    setState(() {
-                      firstName = value;
-                    });
-                  },
-                ),
-                StyledInputField(
-                  password: false,
-                  hintText: 'nazwisko',
-                  onChanged: (value) {
-                    setState(() {
-                      secondName = value;
-                    });
-                  },
-                ),
-                StyledInputField(
-                  password: false,
-                  hintText: 'e-mail',
-                  onChanged: (value) {
-                    setState(() {
-                      email = value;
-                    });
-                  },
-                ),
-                StyledInputField(
-                  password: true,
-                  hintText: 'hasło',
-                  onChanged: (value) {
-                    setState(() {
-                      password = value;
-                    });
-                  },
-                ),
-                LogInButton(
-                  color: Color(kOrange),
-                  label: "Zajerestruj",
-                  onPressed: () async {
-                    register();
-                  },
-                ),
-
-              ],
-            ),
-          ],
+              ),
+              StyledInputField(
+                password: false,
+                hintText: 'imię',
+                onChanged: (value) {
+                  setState(() {
+                    firstName = value;
+                  });
+                },
+              ),
+              StyledInputField(
+                password: false,
+                hintText: 'nazwisko',
+                onChanged: (value) {
+                  setState(() {
+                    secondName = value;
+                  });
+                },
+              ),
+              StyledInputField(
+                password: false,
+                hintText: 'e-mail',
+                onChanged: (value) {
+                  setState(() {
+                    email = value;
+                  });
+                },
+              ),
+              StyledInputField(
+                password: true,
+                hintText: 'hasło',
+                onChanged: (value) {
+                  setState(() {
+                    password = value;
+                  });
+                },
+              ),
+              LogInButton(
+                label: "Zajerestruj",
+                onPressed: () async {
+                  register();
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

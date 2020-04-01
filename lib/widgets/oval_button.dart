@@ -34,12 +34,13 @@ class Oval extends StatelessWidget {
             color: Colors.white,
             shape: BoxShape.circle,
             boxShadow: [
-                BoxShadow(
-                    color: Colors.grey,
-                    blurRadius: 5,
-                    offset: Offset(0, 3),
-                    spreadRadius: 0.5)
-              ],
+              BoxShadow(
+                color: Colors.grey,
+                blurRadius: 5,
+                offset: Offset(0, 3),
+                spreadRadius: 0.5,
+              )
+            ],
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -48,18 +49,26 @@ class Oval extends StatelessWidget {
               RichText(
                 text: TextSpan(
                   text: '$data',
-                  style: kOvalButtonValue.copyWith(color: Color(kOrange)),
+                  style: TextStyle(
+                    color: Color(kOrange),
+                    fontSize: 24,
+                  ),
                   children: <TextSpan>[
                     TextSpan(
                       text: '$unit',
-                      style: kOvalButtonValue.copyWith(fontSize: 20, color: Color(kOrange)),
+                      style: TextStyle(
+                        color: Color(kOrange),
+                        fontSize: 20,
+                      ),
                     ),
                   ],
                 ),
               ),
               Text(
                 "$measurement",
-                style: kOvalButton,
+                style: TextStyle(
+                  fontSize: 12,
+                ),
               ),
             ],
           ),

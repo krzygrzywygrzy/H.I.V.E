@@ -110,8 +110,10 @@ class _DetailsState extends State<Details> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(widget.name,
-                  style: kTextStyleTwo.copyWith(
-                      color: Color(kOrange), fontSize: 40)),
+                  style: TextStyle(
+                    color: Color(kOrange),
+                    fontSize: 40,
+                  )),
             ),
             Slider(
               activeColor: Color(kOrange),
@@ -129,16 +131,15 @@ class _DetailsState extends State<Details> {
             RichText(
               text: TextSpan(
                 text: '$measurement',
-                style: kOvalButtonValue.copyWith(color: Color(kOrange)),
+                style: TextStyle(color: Color(kOrange), fontSize: 24),
                 children: <TextSpan>[
                   TextSpan(
                     text: widget.unit,
-                    style: kOvalButtonValue.copyWith(
-                        fontSize: 20, color: Color(kOrange)),
+                    style: TextStyle(fontSize: 20, color: Color(kOrange)),
                   ),
                   TextSpan(
                     text: returnTime(),
-                    style: kOvalButtonValue.copyWith(fontSize: 20),
+                    style: TextStyle(fontSize: 20,),
                   ),
                 ],
               ),

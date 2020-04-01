@@ -3,10 +3,11 @@ import 'package:hive/const.dart';
 
 class StyledInputField extends StatelessWidget {
   StyledInputField(
-      {@required this.hintText, this.onChanged, @required this.password});
+      {@required this.hintText, this.onChanged, @required this.password,this.email=false});
   final String hintText;
   final Function onChanged;
   final bool password;
+  final bool email;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -15,10 +16,10 @@ class StyledInputField extends StatelessWidget {
       child: TextField(
         onChanged: onChanged,
         obscureText: password,
-        style: kInputField,
+        style: TextStyle(color: Color(kBrown)),
         decoration: InputDecoration(
           hintText: '$hintText',
-          hintStyle: kInputField,
+          hintStyle: TextStyle(color: Color(kBrown)),
           filled: true,
           fillColor: Colors.white,
           contentPadding:

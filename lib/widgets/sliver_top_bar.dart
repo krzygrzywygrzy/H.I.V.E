@@ -16,10 +16,7 @@ class TopBar extends SliverPersistentHeaderDelegate {
               gradient: LinearGradient(
                   begin: Alignment.bottomRight,
                   end: Alignment.topLeft,
-                  colors: [
-                Color(kOrange),
-                Color(kOrangeDarker)
-              ])),
+                  colors: [Color(kOrange), Color(kOrangeDarker)])),
         ),
         Positioned(
           bottom: 5,
@@ -32,11 +29,15 @@ class TopBar extends SliverPersistentHeaderDelegate {
                 RichText(
                   text: TextSpan(
                       text: 'Witaj ',
-                      style: kTextStyleOne.copyWith(fontSize: 25),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 25,
+                      ),
                       children: <TextSpan>[
                         TextSpan(
                             text: '$name!',
-                            style: kTextStyleOne.copyWith(fontSize: 30)),
+                            style:
+                                TextStyle(fontSize: 30, color: Colors.white)),
                       ]),
                 ),
                 Text(
@@ -59,7 +60,6 @@ class TopBar extends SliverPersistentHeaderDelegate {
               Icons.add,
               color: Color(kOrange),
               size: 30,
-              
             ),
           ),
         ),

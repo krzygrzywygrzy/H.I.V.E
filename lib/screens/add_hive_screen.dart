@@ -33,19 +33,16 @@ class _AddHiveState extends State<AddHive> {
                         response: response,
                       )));
         }
-      }
-      else if(message == 'error') {
+      } else if (message == 'error') {
         setState(() {
           warning = 'Wystąpił błąd';
         });
-      }
-      else {
+      } else {
         setState(() {
           warning = message;
         });
       }
-    }
-    else {
+    } else {
       setState(() {
         warning = 'Pola nie mogą być puste';
       });
@@ -77,7 +74,7 @@ class _AddHiveState extends State<AddHive> {
                 alignment: Alignment.center,
                 child: Text(
                   'Dodaj nowy ul',
-                  style: kTextStyleTwo.copyWith(color: Color(kOrange)),
+                  style: TextStyle(),
                 ),
               ),
             ),
@@ -111,7 +108,6 @@ class _AddHiveState extends State<AddHive> {
             ),
             LogInButton(
               label: 'Dodaj',
-              color: Color(kOrange),
               onPressed: () async {
                 add();
               },

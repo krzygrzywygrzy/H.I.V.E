@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hive/const.dart';
-import 'package:hive/screens/form_screen.dart';
 import 'package:hive/screens/log_in_screen.dart';
 import 'package:hive/screens/main_menu.dart';
 import 'package:hive/screens/register_screen.dart';
@@ -18,9 +17,8 @@ class MyApp extends StatelessWidget {
       ),
       // initialRoute: '/',
       home: MyHomePage(),
-     /* routes: {
-        '/': (context) => LoadingScreen(),
-        '/login': (context) => LogIn(),
+      /* routes: {
+        '/': (context) => LogIn(),
         '/register': (context) => Register(),
       }, */
       builder: (context, child) {
