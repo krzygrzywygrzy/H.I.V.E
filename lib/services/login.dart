@@ -28,6 +28,7 @@ class GetData {
     } catch (e) {
       data = 'error';
     }
+    print(data);
     return data;
   }
 }

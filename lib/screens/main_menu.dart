@@ -31,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
           humidity: 3,
           pressure: 3,
           pm10: 3,
-          pm25: 3));
+          pm25: 13));
     }
   }
 

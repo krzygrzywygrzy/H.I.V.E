@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/const.dart';
+import 'package:hive/screens/add_hive.dart';
 
 class TopBar extends SliverPersistentHeaderDelegate {
   TopBar({this.name});
@@ -52,8 +53,9 @@ class TopBar extends SliverPersistentHeaderDelegate {
           bottom: 10,
           right: 10,
           child: GestureDetector(
-            onTap: (){
-              showBottomSheet(context: context, builder: (context)=> Container());
+            onTap: () {
+              showBottomSheet(
+                  context: context, builder: (context) => AddHive());
             },
             child: Container(
               decoration: BoxDecoration(
@@ -83,3 +85,4 @@ class TopBar extends SliverPersistentHeaderDelegate {
     return true;
   }
 }
+

@@ -15,6 +15,12 @@ class _LogInState extends State<LogIn> {
   String password = 'kwakwa5!';
   String warning = '';
 
+  @override
+  void initState()  { 
+    super.initState();
+  }
+
+
   Future logIn() async {
     String response = await GetData.getPrimaryData(email, password);
     if (response == 'error') {
