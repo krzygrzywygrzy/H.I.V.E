@@ -28,7 +28,8 @@ class _RegisterState extends State<Register> {
         });
       } else {
         if (reg == 'done') {
-          var response = await GetData.getPrimaryData(email, password);
+          GetData data = new GetData();
+          var response = await data.getPrimaryData(email, password);
           Navigator.push(
               context,
               MaterialPageRoute(

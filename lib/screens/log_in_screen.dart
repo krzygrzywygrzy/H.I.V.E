@@ -16,13 +16,13 @@ class _LogInState extends State<LogIn> {
   String warning = '';
 
   @override
-  void initState()  { 
+  void initState() {
     super.initState();
   }
 
-
   Future logIn() async {
-    String response = await GetData.getPrimaryData(email, password);
+    GetData data = new GetData();
+    String response = await data.getPrimaryData(email, password);
     if (response == 'error') {
       setState(() {
         warning = 'Nie można zalogować';
@@ -32,12 +32,12 @@ class _LogInState extends State<LogIn> {
         warning = response;
       });
     } else {
-      Navigator.push(
+      print(response);
+      Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(
-              builder: (context) => MyHomePage(
-                    response: response,
-                  )));
+              builder: (context) => MyHomePage(response: response)),
+          ModalRoute.withName('/home'));
     }
   }
 
@@ -118,6 +118,9 @@ class _LogInState extends State<LogIn> {
                   style: TextStyle(fontFamily: "Montserrat"),
                 ),
                 GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/register');
+                  },
                   child: Text(
                     ' Zarejestruj się!',
                     style: TextStyle(

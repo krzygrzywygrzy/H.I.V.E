@@ -14,12 +14,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Montserrat',
       ),
-      // initialRoute: '/',
-      home: MyHomePage(),
-      /* routes: {
+       initialRoute: '/',
+       routes: {
         '/': (context) => LogIn(),
         '/register': (context) => Register(),
-      }, */
+        '/main': (context) => MyHomePage(response: null),
+      },
       builder: (context, child) {
         return ScrollConfiguration(
           behavior: MyBehavior(),

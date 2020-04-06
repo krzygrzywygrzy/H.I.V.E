@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const URL = 'https://projecthive.azurewebsites.net';
+const URL = 'https://newhiveproject.azurewebsites.net';
 const HEADERS = {'Content-Type': 'application/json'};
 
 //greys

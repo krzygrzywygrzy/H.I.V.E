@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:hive/const.dart';
 
 class GetData {
-  static Future<String> getPrimaryData(var email, var password) async {
+   Future<String> getPrimaryData(var email, var password) async {
     var res =
         '{"message":"Nie udało się!","specyfic":"Nie ma takiego użytkownika."}';
     var loginApi = '/api/user/login/';
@@ -28,7 +28,8 @@ class GetData {
     } catch (e) {
       data = 'error';
     }
-    print(data);
     return data;
   }
+  
+
 }
